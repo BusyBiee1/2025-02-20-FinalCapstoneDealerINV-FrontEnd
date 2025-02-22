@@ -1,18 +1,18 @@
 import React from 'react';
 //import Banner from '../components/Banner';
 import Navigation from '../components/Navigation';
-import Dashboard from '../components/Dashboard';
+import Login from '../components/Login';
 
-function DashboardPage () {
-//const DashboardPage = () => {
+function HomePage () {
+//const HomePage = () => {
   return (
-    <div className="dashboard-page">
+    <div className="home-page">
       {/* <Banner /> */}
       {/* <Navigation /> */}
-      {/* <h2>Dashboard</h2> */}
-      <Dashboard />
+      {/* <h2>Welcome to Dealer Vehicle Tracking System</h2> */}
+      <Login />
     </div>
   );
 };
 
-export default DashboardPage;
+export default HomePage;

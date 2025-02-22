@@ -1,0 +1,31 @@
+.vehicle-table {
+    width: 100%;
+    max-width: 800px; /* Adjust this value as needed */
+    border-collapse: collapse;
+  }
+  
+  .vehicle-table th,
+  .vehicle-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .vehicle-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .vehicle-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .vehicle-table tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Add spacing between buttons */
+  .button-container {
+    display: flex; /* Use flexbox for alignment */
+    gap: 30px; /* Adjust this value to increase/decrease space */
+  }
