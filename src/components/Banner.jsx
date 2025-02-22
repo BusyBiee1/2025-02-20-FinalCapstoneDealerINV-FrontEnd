@@ -13,12 +13,5 @@ function Banner () {
     </div>
   );
 }  
-//   return (
-//     <div className="banner">
-//       <img src={bannerImage} alt="Dealer Vehicle Tracking System" className="banner-image" />
-//       <h1>Dealer Vehicle Tracking System</h1>
-//     </div>
-//   );
-// };
 
 export default Banner;
