@@ -2,26 +2,39 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('admin');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-/*************  ✨ Codeium Command ⭐  *************/
-/**
- * Handles the login process by preventing the default form submission.
- * Checks if the entered username and password match the default credentials.
- * Navigates to the dashboard if credentials are correct; otherwise, alerts the user.
- * 
- * @param {Event} e - The event object from the form submission.
- */
-
-/******  bf6b6645-6f84-43e5-be2c-3ba7cd5e972e  *******/
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (username === 'admin' && password === 'admin') {
-      navigate('/dashboard');
-    } else {
-      alert('Invalid credentials');
+    console.log('Login attempt with:', { username, password });
+    try {
+      const response = await fetch('http://localhost:3000/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+      console.log('Response status:', response.status);
+      const data = await response.json();
+      console.log('Response data:', data);
+      
+      if (response.ok) {
+        console.log('Login successful, storing user data');
+        localStorage.setItem('user', JSON.stringify(data));
+        console.log('Triggering storage event');
+        window.dispatchEvent(new Event('storage')); // Trigger storage event
+        console.log('Navigating to dashboard');
+        navigate('/dashboard');
+      } else {
+        console.error('Login failed:', data.message);
+        alert(data.message || 'Login failed');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('An error occurred during login');
     }
   };
 
