@@ -2,9 +2,8 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Navigation.css';
 
-function Navigation() {
+function Navigation({ user, isLoggedIn }) {
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem('user') !== null;
 
   const handleLogout = () => {
     localStorage.removeItem('user');
@@ -20,6 +19,11 @@ function Navigation() {
             <li><Link to="/search">Search</Link></li>
             <li><Link to="/add">Add</Link></li>
             <li><a href="/" onClick={handleLogout}>Logout</a></li>
+            {user && (
+              <li className="user-display">
+                <span>{`${user.firstname} ${user.lastname}`}</span>
+              </li>
+            )}
           </>
         ) : (
           <>
@@ -33,3 +37,4 @@ function Navigation() {
 }
 
 export default Navigation;
+
