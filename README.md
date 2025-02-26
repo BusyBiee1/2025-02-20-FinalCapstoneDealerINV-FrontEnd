@@ -23,7 +23,6 @@ https://github.com/BusyBiee1/2025-02-20-FinalCapstoneDealerINV-FrontEnd.git
 
 ## Project Overview
 Dealer Inventory Tracker is a full-stack web application designed to help vehicle dealerships manage their inventory efficiently. It provides features for user authentication, adding new vehicles, searching the inventory, and managing vehicle details.
-By defualt the backend server will run on port 3000 and the fronend server will run on port 5174. 
 
 ## Technology Stack
 - **Frontend:**
@@ -175,10 +174,34 @@ npm run dev
 After starting both servers, navigate to `http://localhost:3000` in your browser to use the application.
 
 ## API Endpoints
-- `/api/users/login`: User login
-- `/api/users/register`: User registration
-- `/api/vehicles`: CRUD operations for vehicles
 
+- `VEHICLE`
+- `/api/vehicles`: ALL 4 CRUD operations for vehicles
+   1. Get / Read
+        eg http://localhost:3000/api/vehicles
+        and
+        Search vehicles by make, model, color, year
+        eg http://localhost:3000/api/vehicles/search?make=Tesla
+   2. Post / Create
+        eg http://localhost:3000/api/vehicles
+        eg post request with body:{"make": "Honda","model": "Camry","year": "2020","color": "White")
+   3. Put  / Patch / Update
+        eg http://localhost:3000/api/vehicles/search/12
+        eg put request with body:{"make": "Honda", "model": "Camry", "year": "2005", "color": "White"}
+   4. Delete
+        eg http://localhost:3000/api/vehicles/search?12
+
+- `USER`
+- `/api/users/login`: User login
+   1. Post / Register a new user
+    eg: http://localhost:3000/api/users/register
+    eg: post request with body: {"username":"user1","password":"password1","firstname":"User","lastname":"One"}
+- `/api/users/register`: User registration
+   2. Post / Login a new user
+    eg: http://localhost:3000/api/users/login
+    eg: post request with body: {"username":"user1","password":"password1"}
+
+   
 ## State Management
 - React's useState hook is used for local component state
 - useEffect hook is used for side effects like fetching data and checking login status
@@ -189,9 +212,7 @@ React Router is used for client-side routing. The main routes are:
 - `/`: Home page
 - `/login`: Login page
 - `/register`: Registration page
-- `/dashboard`: User dashboard (protected route)
 - `/search`: Search inventory (protected route)
-- `/add`: Add new vehicle (protected route)
 
 ## Styling
 CSS modules are used for component-specific styling. Each component has its own CSS file in the `styles/` directory.
