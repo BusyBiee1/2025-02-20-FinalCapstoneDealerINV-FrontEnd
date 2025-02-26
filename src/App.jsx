@@ -12,13 +12,13 @@ import './styles/App.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const checkLoginStatus = () => {
-      console.log('Checking login status');
-      const loggedIn = localStorage.getItem('user') !== null;
-      console.log('Is logged in:', loggedIn);
-      setIsLoggedIn(loggedIn);
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+      setIsLoggedIn(!!storedUser);
+      setUser(storedUser);
     };
 
     checkLoginStatus();
@@ -33,7 +33,7 @@ function App() {
     <Router>
       <div className="App">
         <Banner />
-        <Navigation isLoggedIn={isLoggedIn} />
+        <Navigation isLoggedIn={isLoggedIn} user={user} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={isLoggedIn ? <Navigate to="/dashboard" /> : <LoginPage />} />

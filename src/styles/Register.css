@@ -1,0 +1,23 @@
+css
+.error-message {
+  color: #ff0000d8; 
+  text-align: center;
+  margin-top: 5px;
+}
+
+.register-container {
+    color: #ff0000d8 !important;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .input-field {
+    width: 10%;
+     max-width: 100px; 
+  }
+
+  .success-message {
+    color: #0c581e; /* Green color for success messages */
+    text-align: center;
+    margin-top: 5px;
+  }

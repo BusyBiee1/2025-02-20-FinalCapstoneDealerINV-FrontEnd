@@ -82,9 +82,13 @@ function Search() {
         <button type="submit">Search</button>
       </form>
       {error && <div className="error-message">{error}</div>}
-      <VehicleTable vehicles={vehicles} onEdit={handleEdit} onDelete={handleDelete} />
+      <div className="table-container">
+        <VehicleTable vehicles={vehicles} onEdit={handleEdit} onDelete={handleDelete} />
+      </div>      
+      {/* <VehicleTable vehicles={vehicles} onEdit={handleEdit} onDelete={handleDelete} /> */}
     </div>
   );
 }
 
 export default Search;
+

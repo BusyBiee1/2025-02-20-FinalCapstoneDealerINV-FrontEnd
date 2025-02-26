@@ -9,7 +9,12 @@
 }
 
 .table-container {
+  height: 400px; /* Adjust this value as needed */
+  overflow-y: auto;
+}
+
+/* .table-container {
   width: 100%;
   display: flex;
   justify-content: center;
-}
+} */

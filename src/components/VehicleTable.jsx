@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import '../styles/VehicleTable.css';
 
@@ -87,6 +88,7 @@ function VehicleTable({ vehicles, onEdit, onDelete }) {
 }
 
 export default VehicleTable;
+
 
 
 // import React, { useState } from 'react';

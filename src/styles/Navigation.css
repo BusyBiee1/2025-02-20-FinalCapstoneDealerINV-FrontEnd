@@ -4,33 +4,45 @@
 } */
 
 .navigation {
-    width: 100%;
-    padding: 10px 0;
-  }
-  
-  .navigation ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .navigation li {
-    margin: 0 15px;
-  }
-  
-  .navigation a, .navigation button {
-    text-decoration: none;
-    color: black;
-    font-size: 1.1em;
-    font-weight: bold;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .navigation a:hover, .navigation button:hover {
-    text-decoration: underline;
-  }
-  
+  width: 100%;
+  padding: 10px 0;
+}
+
+.navigation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation li {
+  margin: 0 15px;
+}
+
+.navigation a, .navigation button {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navigation a:hover, .navigation button:hover {
+  text-decoration: underline;
+}
+
+/* New styles for user name display */
+.user-display {
+  margin-left: auto;
+  font-size: 0.80em;
+  color: #555;
+}
+
+.user-display span {
+  padding: 3px 6px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
