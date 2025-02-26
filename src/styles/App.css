@@ -1,49 +1,67 @@
-/*.add-container {
-    max-width: 100px;
-     margin: 0 auto; 
-     padding: 20px; 
-  }
-  */
-  /* .add-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
- */ 
- .input-field {
-  width: 10%;
-   max-width: 100px; 
+ 
+ /* App.css */
+ .App {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
-/*/
+
+.content {
+  flex: 1;
+  padding: 20px;
 }
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+h1, h2, h3 {
+  color: var(--primary-color);  
+  /* color: var(--primary-color); */
 }
-*/ 
-/*
-.submit-button {
-  width: 100%;
-  max-width: 200px; 
-  padding: 10px;
-  background-color: #4CAF50;
+
+button {
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-.submit-button:hover {
-  background-color: #45a049;
+button:hover {
+  background-color: #2980b9;
 }
 
-.error-message {
-  color: red;
-  margin-bottom: 10px;
+input[type="text"], input[type="password"] {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.success-message {
-  color: green;
-  margin-bottom: 10px;
+.error {
+  color: var(--error-color);
+  margin: 10px 0;
 }
- */
+
+.banner {
+  /* background-color: var(--primary-color); */
+  color: white;
+  /* padding: 20px; */
+
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+}
+
+/* Ensure navigation styling is not affected */
+.navigation,
+.navigation ul {
+  background-color: transparent;
+}
+
+.navigation a,
+.navigation button {
+  color: var(--text-color);
+}
+
