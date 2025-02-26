@@ -16,10 +16,11 @@ https://github.com/BusyBiee1/2025-02-20-FinalCapstoneDealerINV-FrontEnd.git
 7. [API Endpoints](#api-endpoints)
 8. [State Management](#state-management)
 9. [Routing](#routing)
-10. [Styling](#styling)
-11. [Error Handling](#error-handling)
-12. [Future Enhancements](#future-enhancements)
-13. [Details of React state and hooks in this application](#Details-UseOfStateHooks)
+10. [Encryption and Session mtmg](#Encryption-SessionMTMG)
+11. [Styling](#styling)
+12. [Error Handling](#error-handling)
+13. [Future Enhancements](#future-enhancements)
+14. [Details of React state and hooks in this application](#Details-UseOfStateHooks)
 
 ## Project Overview
 Dealer Inventory Tracker is a full-stack web application designed to help vehicle dealerships manage their inventory efficiently. It provides features for user authentication, adding new vehicles, searching the inventory, and managing vehicle details.
@@ -33,7 +34,7 @@ Dealer Inventory Tracker is a full-stack web application designed to help vehicl
 - **Backend:**
   - Node.js
   - Express.js
-  - MongoDB (assumed based on project structure)
+  - MongoDB 
 - **Development Tools:**
   - ESLint for code linting
   - Git for version control
@@ -164,17 +165,18 @@ cd ../backend
 npm install
 4. Set up environment variables in both frontend and backend `.env` files
 5. Start the backend server:
-npm start
+node server.mjs
 6. Start the frontend development server:
 cd ../frontend
 npm run dev
 
 
 ## Usage
-After starting both servers, navigate to `http://localhost:3000` in your browser to use the application.
+After starting both servers: 
+Navigate to `http://localhost:5173/` in your browser to use the application.
+PS: The backend sever is at `http://localhost:3000`
 
 ## API Endpoints
-
 - `VEHICLE`
 - `/api/vehicles`: ALL 4 CRUD operations for vehicles
    1. Get / Read
@@ -205,6 +207,7 @@ After starting both servers, navigate to `http://localhost:3000` in your browser
 ## State Management
 - React's useState hook is used for local component state
 - useEffect hook is used for side effects like fetching data and checking login status
+- useReduce will be implemented in future version to manager several userState hook employed in the applicaiton.
 - Context API could be implemented for global state management (if needed in future iterations)
 
 ## Routing
@@ -212,21 +215,28 @@ React Router is used for client-side routing. The main routes are:
 - `/`: Home page
 - `/login`: Login page
 - `/register`: Registration page
-- `/search`: Search inventory (protected route)
+- `/search`: Search Vehicle inventory 
+- `/get`: Get Vehicle inventory 
+- `/post`: Add Vehicle inventory 
+- `/put`: Update Vehicle inventory 
+- `/delete`: Delete Vehicle inventory 
+
+## Encryption and Session mtmg:
+Password Hashing Process
+When a user registers, their password is hashed using Bcrypt before storage3.
+During login, the entered password is compared with the stored hash using Bcrypt's comparison function2.
+At this time the application does not implement JSON Web Tokens (JWT) for session management. Implementing JWT for secure authentication and authorization is planned for a future version to enhance the application's security and scalability.
 
 ## Styling
 CSS modules are used for component-specific styling. Each component has its own CSS file in the `styles/` directory.
 
 ## Error Handling
 - A custom `errorHandler.jsx` utility is used for consistent error handling across the application
-- Axios interceptors could be implemented for global API error handling
 
 ## Future Enhancements
 1. Implement pagination for large inventories
 2. Add more detailed analytics on the dashboard
 3. Implement a more robust state management solution like Redux if the application grows in complexity
-4. Add unit and integration tests
-5. Implement a CI/CD pipeline for automated testing and deployment
 
 ## Use of state and hooks - details
 Detailed Explaination of React state management and Hooks useage in the application
