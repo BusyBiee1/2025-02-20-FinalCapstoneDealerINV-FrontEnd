@@ -1,11 +1,11 @@
+// import dependencies
 import React from 'react';
 import Login from '../components/Login';
 
 function LoginPage() {
   return (
     <div className="login-page">
-      {/* <h2>Login to Dealer Vehicle Tracking System</h2> */}
-      <Login />
+      <Login /> {/* Render the Login component */}
     </div>
   );
 }

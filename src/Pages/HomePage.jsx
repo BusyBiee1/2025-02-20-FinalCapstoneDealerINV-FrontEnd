@@ -1,18 +1,14 @@
+// import dependencies
 import React from 'react';
-//import Banner from '../components/Banner';
-import Navigation from '../components/Navigation';
-import Login from '../components/Login';
+//import Navigation from '../components/Navigation'; // Import the Navigation component
+import Login from '../components/Login'; // Import the Login component
 
-function HomePage () {
-//const HomePage = () => {
+function HomePage () { // Define the HomePage functional component
   return (
-    <div className="home-page">
-      {/* <Banner /> */}
-      {/* <Navigation /> */}
-      {/* <h2>Welcome to Dealer Vehicle Tracking System</h2> */}
-      <Login />
+    <div className="home-page"> 
+      <Login /> {/* Render the Login component */}
     </div>
   );
 };
 
-export default HomePage;
+export default HomePage; 
