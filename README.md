@@ -177,7 +177,7 @@ PS: The backend sever is at `http://localhost:3000`
 - useEffect hook is used for side effects like fetching data and checking login status
 - useMemo hook is used to memorize (cache) the result of sorting the Veehicles array optimizing and preventing unnecessary resorting on every render.
 - useReduce will be implemented in future version to manager several userState hook employed in the applicaiton.
-- Context API could be implemented for global state management (if needed in future iterations)
+- useContext could be implemented to avoid prop drilling and for for global state management (if needed in future iterations)
 
 ## Routing
 React Router is used for client-side routing. The main routes are:
