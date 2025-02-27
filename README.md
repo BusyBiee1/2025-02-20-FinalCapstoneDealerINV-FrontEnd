@@ -173,11 +173,12 @@ PS: The backend sever is at `http://localhost:3000`
 
    
 ## State Management
-- React's useState hook is used for local component state
+- useState hook is used for local component state
 - useEffect hook is used for side effects like fetching data and checking login status
 - useMemo hook is used to memorize (cache) the result of sorting the Veehicles array optimizing and preventing unnecessary resorting on every render.
-- useReduce will be implemented in future version to manager several userState hook employed in the applicaiton.
-- useContext could be implemented to avoid prop drilling and for for global state management (if needed in future iterations)
+- useReduce will be implemented in future version to manager several userState hook employed in the applicaiton for complex logic.
+- useContext could be implemented to avoid prop drilling and to share state across components for global state management (if needed in future iterations)
+- useContext could be implemented to avoid prop drilling and to share state across components for global state management (if needed in future iterations) or even Redux for complex state management where Redux allows easy sharing of state between components, regardless of their hierarchy in the component tree, but requiring a extensive up.
 
 ## Routing
 React Router is used for client-side routing. The main routes are:
