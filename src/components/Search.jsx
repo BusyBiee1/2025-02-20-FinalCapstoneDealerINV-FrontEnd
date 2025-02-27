@@ -6,39 +6,43 @@ import handleApiError from '../utils/errorHandler';
 import '../styles/Search.css'; 
 
 function Search() {
-  // State to manage the search field (e.g., 'all', 'make', 'model')
+  // State to manage the search field (e.g., 'all', 'make', 'model'). This state is updated when the user selects a search field from the dropdown
   const [searchField, setSearchField] = useState('all');
-  // State to manage the search value (e.g., 'Toyota', 'Camry')
+  // State to manage the search value (e.g., 'Toyota', 'Camry'). This state is updated when the user types in the search input field
   const [searchValue, setSearchValue] = useState('');
-  // State to store the search results (vehicles array)
+  // State to store the search results (vehicles array). when this state is updated, the VehicleTable component will re-render
   const [vehicles, setVehicles] = useState([]);
-  // State to manage error messages
+  // State to manage error messages while data fetching. This state is updated when an error occurs during the API request
   const [error, setError] = useState(null);
 
   // Function to handle the search form submission
   const handleSearch = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-    setError(null); // Clear any previous errors
+    setError(null); // Clear any previous errors. It triggers a state change and a rerender but since nothing is in the error msg there is no display. Only way to clear.
     try {
       let url = `${import.meta.env.VITE_API_URL}/api/vehicles`; // Base URL for the vehicles API
       // If a specific search field and value are selected, append them to the URL
       if (searchField !== 'all' && searchValue.trim() !== '') {
-        url += `/search?${searchField}=${encodeURIComponent(searchValue.trim())}`; 
+        url += `/search?${searchField}=${encodeURIComponent(searchValue.trim())}`;  // prepare the url to query the mongodb
       }
-      // Make a GET request to the search URL using axios
+      // Make a GET request to the search URL using axios for the search field value
       const response = await axios.get(url);
-      // Set the vehicles state with the search results
-      setVehicles(response.data);
+      // Set the vehicles state with the search results. The VehicleTable component will re-render with the updated vehicles
+      setVehicles(response.data);  
     } catch (error) {
       // Handle API errors using the errorHandler utility
       const errorMessage = handleApiError(error);
-      setError(errorMessage); // Set the error message
+      setError(errorMessage); // Set the error message which will casuse the component to rerender and disply that msg in errorMessage
     }
   };
 
-  // useEffect hook to perform an initial search when the component mounts
+  // useEffect hook to perform an initial search when the component mounts. 
+  // The useEffect hook works with handleSearch: useEffect runs the handleSearch function after the component renders. 
+  // Basically every time this component updates, check if handleSearch needs to be called as per stated dependencies (in array), like [searchTerm], 
+  // it only re-runs handleSearch when searchTerm changes. But here it is a dempty dependency array, so it runs only once.
+  // which bring all the vehicles from the database as default search
   useEffect(() => {
-    handleSearch({ preventDefault: () => {} }); // Perform an initial search with empty search criteria
+    handleSearch({ preventDefault: () => {} }); // Prevent default behavior of submit btn and Perform an initial search with empty search criteria
   }, []); // Empty dependency array means this effect runs only once on mount
 
   // Function to handle changes in the search field dropdown
@@ -46,7 +50,7 @@ function Search() {
     const selectedField = e.target.value; // Get the selected search field
     setSearchField(selectedField); // Update the searchField state
     if (selectedField === 'all') {
-      setSearchValue(''); // Clear the search value if 'all' is selected
+      setSearchValue(''); // Clear the search value if 'all' is selected. This will trigger a new search with empty search criteria.
     }
   };
 
