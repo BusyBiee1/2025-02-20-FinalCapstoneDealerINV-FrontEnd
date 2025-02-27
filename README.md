@@ -175,6 +175,7 @@ PS: The backend sever is at `http://localhost:3000`
 ## State Management
 - React's useState hook is used for local component state
 - useEffect hook is used for side effects like fetching data and checking login status
+- useMemo hook is used to memorize (cache) the result of sorting the Veehicles array optimizing and preventing unnecessary resorting on every render.
 - useReduce will be implemented in future version to manager several userState hook employed in the applicaiton.
 - Context API could be implemented for global state management (if needed in future iterations)
 
