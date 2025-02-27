@@ -1,10 +1,12 @@
 # Dealer Inventory Tracker
 
 Note: 
-The Backend github repository is at:
+-The Backend github repository is at:
 https://github.com/BusyBiee1/2025-02-20-FinalCapstoneDealerINV-BackEnd.git
-The Fronend github repository is at:
+-The Fronend github repository is at:
 https://github.com/BusyBiee1/2025-02-20-FinalCapstoneDealerINV-FrontEnd.git
+-Navigate to `http://localhost:5173/` in your browser to use the application.
+PS: The backend sever is at `http://localhost:3000`
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
@@ -40,41 +42,7 @@ Dealer Inventory Tracker is a full-stack web application designed to help vehicl
   - Git for version control
 
 ## Project Structure
-The project is divided into two main parts: frontend and backend.
-
-### Frontend Structure
-frontend/
-├── public/
-│ ├── DealerInvTracker.png
-│ ├── favicon.png
-│ └── vite.svg
-├── src/
-│ ├── assets/
-│ ├── components/
-│ ├── pages/
-│ ├── styles/
-│ ├── utils/
-│ ├── App.jsx
-│ ├── index.css
-│ └── main.jsx
-├── .env
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package.json
-├── README.md
-└── vite.config.js
-
-### Backend Structure
-backend/
-├── config/
-├── controllers/
-├── models/
-├── routes/
-├── .env
-├── .gitignore
-├── package.json
-└── server.mjs
+The project is divided into two main parts: backend and fronend.
 
 ### Comprehensive Project Structure
 Fullstack-A-DealerInventory (project-root)/
@@ -148,7 +116,7 @@ Fullstack-A-DealerInventory (project-root)/
     └── vite.config.js
 
 ## Key Features
-1. User Authentication (Login/Register)
+1. User Authentication (Login/Register with password encryption)
 2. Dashboard for overview
 3. Add new vehicles to inventory
 4. Search functionality for vehicles
@@ -158,17 +126,17 @@ Fullstack-A-DealerInventory (project-root)/
 ## Setup and Installation
 1. Clone the repository
 2. Navigate to the frontend directory:
-cd frontend
-npm install
+   cd frontend 
+   npm install
 3. Navigate to the backend directory:
-cd ../backend
-npm install
+   cd ../backend
+   npm install
 4. Set up environment variables in both frontend and backend `.env` files
 5. Start the backend server:
-node server.mjs
+   node server.mjs
 6. Start the frontend development server:
-cd ../frontend
-npm run dev
+   cd ../frontend
+   npm run dev
 
 
 ## Usage
@@ -268,20 +236,15 @@ If the VehicleTable component passes the sorted vehicles to child components (li
 
 Maintaining Consistent Reference:
 useMemo ensures that the sorted array maintains the same reference between renders if the vehicles data hasn't changed. This is particularly useful if the sorted array is passed as a prop to memoized child components27.
-
 In the context of this vehicle inventory application, using useMemo for sorting is crucial because:
-
 The inventory may contain a large number of vehicles, making sorting potentially expensive.
-
 Users might frequently interact with the table (e.g., adding, editing, or deleting vehicles), which could trigger re-renders.
-
 The sorted order of vehicles needs to remain consistent and efficient, especially when users are browsing or searching the inventory.
-
 By implementing useMemo for sorting, the application ensures a smooth user experience with optimal performance, even as the inventory grows or changes frequently135.
 
 ## 2. Use of React hook useEffect
-In the Dealer Inventory Tracker application, useEffect is utilized in several components for various purposes. Here's a detailed explanation of its usage:
-
+In the Dealer Inventory Tracker application, useEffect is utilized in several components. 
+As an example:
 App.jsx:
 useEffect(() => {
   const checkLoginStatus = () => {
@@ -297,12 +260,9 @@ useEffect(() => {
     window.removeEventListener('storage', checkLoginStatus);
   };
 }, []);
-This useEffect serves two purposes:
-
+For example in above code the useEffect serves two purposes:
 It checks the user's login status on initial render and updates the isLoggedIn and user states accordingly.
-
 It sets up an event listener for storage changes, allowing the app to react to login/logout events that might occur in other tabs.
-
 The empty dependency array ensures this effect runs only once on component mount.
 
 Search.jsx:
@@ -334,11 +294,8 @@ App.jsx:
 const [isLoggedIn, setIsLoggedIn] = useState(false);
 const [user, setUser] = useState(null);
 These state variables manage the user's authentication status and user information. They are crucial for:
-
 Controlling access to protected routes
-
 Displaying user-specific information in the Navigation component
-
 Triggering re-renders when login status changes
 
 Search.jsx:
@@ -347,11 +304,8 @@ const [searchValue, setSearchValue] = useState('');
 const [vehicles, setVehicles] = useState([]);
 const [error, setError] = useState(null);
 These states manage the search functionality:
-
 searchField and searchValue control the search input fields
-
 vehicles stores the search results
-
 error handles any API errors during search
 
 Add.jsx:
@@ -359,9 +313,7 @@ const [vehicle, setVehicle] = useState({ make: '', model: '', color: '', year: '
 const [error, setError] = useState(null);
 const [success, setSuccess] = useState(false);
 These states manage the form for adding new vehicles:
-
 vehicle stores the form input values
-
 error and success handle feedback messages after form submission
 
 Login.jsx and Register.jsx:
@@ -369,20 +321,15 @@ const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [error, setError] = useState(null);
 These states manage the authentication forms:
-
 username and password store form input values
-
 error handles authentication errors
 
 VehicleTable.jsx:
 const [editingId, setEditingId] = useState(null);
 const [editedVehicle, setEditedVehicle] = useState({});
 These states manage the inline editing functionality:
-
 editingId tracks which vehicle is being edited
-
 editedVehicle stores the temporary edited values before submission
-
 The useState hook is essential in this application for creating reactive user interfaces, managing form inputs, and controlling component behavior based on user actions and API responses135.
 
 
