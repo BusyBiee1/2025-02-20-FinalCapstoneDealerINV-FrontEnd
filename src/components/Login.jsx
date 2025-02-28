@@ -85,3 +85,38 @@ function Login() {
 }
 
 export default Login;
+
+/*
+In the provided Login component, the API call is directly tied to the form submission event, 
+so it does not require the use of useEffect. The component's state is updated based on 
+the API response, and no cleanup is needed. If the component had additional side effects, 
+such as setting up a timer or subscribing to events, then useEffect would be the appropriate 
+hook to use to manage those effects.
+.
+The Login component in the provided code does not use the useEffect hook, even though it 
+makes an API call. This is because the API call is made within the handleLogin function, 
+which is triggered by the form submission event, rather than being part of a side effect 
+that needs to be managed by useEffect.
+Here's an explanation of why useEffect is not used in this component:
+API Call in Event Handler: The API call is made within the handleLogin function, which is 
+called when the login form is submitted. This is a direct user interaction, not a side 
+effect that needs to be managed by useEffect.
+No Dependency Changes: The handleLogin function does not rely on any state variables or 
+props that would require it to be re-executed when they change. The function simply makes 
+an API call based on the current username and password state values.
+No Cleanup Needed: The handleLogin function does not set up any subscriptions, timers, 
+or other resources that need to be cleaned up. It simply makes an API call and updates 
+the component's state based on the response.
+In contrast, the useEffect hook is typically used for the following purposes:
+Fetching Data: Fetching data from an API or other external source when the component 
+mounts or when certain dependencies change.
+Setting up Subscriptions: Subscribing to events or setting up other side effects that 
+need to be cleaned up when the component unmounts or when certain dependencies change.
+Performing Cleanup: Cleaning up resources, such as timers or event listeners, when the 
+component unmounts or when certain dependencies change.
+In the provided Login component, the API call is directly tied to the form submission event, 
+so it does not require the use of useEffect. The component's state is updated based on the 
+API response, and no cleanup is needed.
+If the component had additional side effects, such as setting up a timer or subscribing to events, then useEffect would be the appropriate hook to use to manage those effects.
+*/
+

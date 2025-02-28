@@ -21,7 +21,7 @@ function Dashboard() {
         // Make a GET request to the vehicles API endpoint using axios
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/vehicles`);
         console.log('API Response:', response.data); 
-
+        // I can use this in the futgure - kind of comprehensive on the fly error handling to make sure that the data is in the format that I expect
         // Check the format of the response data to determine how to set vehicleCount
         if (Array.isArray(response.data)) {
           // If the response data is an array, set vehicleCount to the length of the array

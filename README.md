@@ -25,11 +25,11 @@ PS: The backend sever is at `http://localhost:3000`
 14. [Details of React state and hooks in this application](#Details-UseOfStateHooks)
 
 ## Project Overview
-Dealer Inventory Tracker is a full-stack web application designed to help vehicle dealerships manage their inventory efficiently. It provides features for user authentication, adding new vehicles, searching the inventory, and managing vehicle details.
+Vehicle Inventory Tracker is a full-stack web application designed to help manage Vehicle inventory. It provides features for user authentication, adding new vehicles, updating and if needed deleting vehicles and also searching the inventory of vehicles and managing vehicle details.There is a specific use case for this applicaiton that is - This is not a car salesmen application or a procurement application. It is for the use of the inventory clerk in the back office to use, when at the end of the day they get a list of vehicles that were sold and bought and they enter that data into this application.
 
 ## Technology Stack
 - **Frontend:**
-  - React (v19.0.0)
+  - React (v19.0.0) 
   - React Router (v7.2.0)
   - Axios for API calls
   - Vite as the build tool
@@ -38,7 +38,6 @@ Dealer Inventory Tracker is a full-stack web application designed to help vehicl
   - Express.js
   - MongoDB 
 - **Development Tools:**
-  - ESLint for code linting
   - Git for version control
 
 ## Project Structure
@@ -177,7 +176,6 @@ PS: The backend sever is at `http://localhost:3000`
 - useEffect hook is used for side effects like fetching data and checking login status
 - useMemo hook is used to memorize (cache) the result of sorting the Veehicles array optimizing and preventing unnecessary resorting on every render.
 - useReduce will be implemented in future version to manager several userState hook employed in the applicaiton for complex logic.
-- useContext could be implemented to avoid prop drilling and to share state across components for global state management (if needed in future iterations)
 - useContext could be implemented to avoid prop drilling and to share state across components for global state management (if needed in future iterations) or even Redux for complex state management where Redux allows easy sharing of state between components, regardless of their hierarchy in the component tree, but requiring a extensive up.
 
 ## Routing
