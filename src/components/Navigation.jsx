@@ -6,7 +6,7 @@ import '../styles/Navigation.css';
 function Navigation({ user, isLoggedIn }) { // Destructure props: user object and isLoggedIn boolean
   const navigate = useNavigate(); // Initialize useNavigate hook for navigation
 
-  // Function to handle logout
+  // Function to handle logout 
   const handleLogout = () => {
     localStorage.removeItem('user'); // Remove the user data from localStorage, effectively logging the user out
     navigate('/'); // Navigate to the home page after logout

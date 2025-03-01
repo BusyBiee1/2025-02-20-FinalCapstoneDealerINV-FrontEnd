@@ -66,8 +66,8 @@ function Search() {
       const errorMessage = handleApiError(error);
       setError(errorMessage); // Set the error message
     }
-  };
-
+  }; 
+ 
   // Function to handle deleting a vehicle
   const handleDelete = async (id) => {
     try {

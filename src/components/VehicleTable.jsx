@@ -16,7 +16,7 @@ function VehicleTable({ vehicles, onEdit, onDelete }) { // VehicleTable componen
   const handleSave = () => {
     onEdit(editedVehicle); // Call the onEdit function passed as a prop, passing the edited vehicle data
     setEditingId(null); // Clear the editingId, exiting edit mode
-  };
+  }; 
 
   // Function to handle input changes in the edit form
   const handleChange = (e, field) => {

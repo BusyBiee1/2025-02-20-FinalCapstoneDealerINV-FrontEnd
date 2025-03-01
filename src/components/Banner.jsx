@@ -3,7 +3,7 @@ import bannerImage from '../assets/images/banner.jpg';
 import '../styles/Banner.css'; // Import the CSS file
 
 function Banner () {
-//const Banner = () => {
+//const Banner = () => { 
   return (
     <div className="banner-wrapper">
       <div className="banner">

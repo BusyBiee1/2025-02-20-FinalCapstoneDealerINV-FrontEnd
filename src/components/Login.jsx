@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'; // Hook for programmatic navigat
 import axios from 'axios'; // HTTP client for making API requests
 import '../styles/Login.css'; // Import CSS styles for the Login component
 
-// Define the Login component
+// Define the Login component 
 function Login() {
   // State variables to manage form inputs and component state
   const [username, setUsername] = useState(''); // State for username input

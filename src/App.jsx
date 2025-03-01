@@ -19,7 +19,7 @@ function App() {
       const storedUser = JSON.parse(localStorage.getItem('user'));
       setIsLoggedIn(!!storedUser);
       setUser(storedUser);
-    };
+    };  
 
     checkLoginStatus();
     window.addEventListener('storage', checkLoginStatus);

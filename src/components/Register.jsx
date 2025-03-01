@@ -31,7 +31,7 @@ function Register() {
     e.preventDefault(); // Prevent the default form submission behavior
     setMessage(''); // Clear any previous messages
 
-    // Validate username
+    // Validate username 
     if (!validateUsername(username)) {
       setMessage('Username can only contain letters and numbers.');
       return; // Exit the function if validation fails

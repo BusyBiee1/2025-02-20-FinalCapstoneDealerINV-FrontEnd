@@ -8,7 +8,7 @@ function Dashboard() {
   // State to manage the loading state
   const [loading, setLoading] = useState(true);
   // State to manage any errors during data fetching
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); 
 
   // useEffect hook to fetch vehicle data when the component mounts
   useEffect(() => {
